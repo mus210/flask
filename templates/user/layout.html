@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Fake Review Detection System{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Flash message styling */
+        .flash-messages {
+            width: fit-content;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header text-center">
+        <h1><b style="color: #FDA481;">Fake Review Detection System</b></h1>
+    </header>
+        <!-- Flash Messages -->
+        <div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-messages">
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} alert-dismissible fade in" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+        </div>
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar -->
+                <aside class="col-md-3 sidebar-wrapper">
+                    <div class="sidebar">
+                        <ul class="sidebar-menu list-unstyled">
+                            <li><a href="/user_view_products"><b>View Products</b></a></li>
+                            <li><a href="{{ url_for('logout') }}"><b>Logout</b></a></li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="col-md-9">
+                    <section class="content">
+                        {% block content %}{% endblock %}
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center mt-2">
+            <p>&copy; 2025 All rights reserved by Muhammad Usama - BC210408075.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        // Auto-hide flash messages after 5 seconds
+        setTimeout(function () {
+            $(".flash-messages .alert").fadeOut("slow");
+        }, 1000);
+    </script>
+</body>
+</html>
