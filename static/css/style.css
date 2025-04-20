@@ -1,0 +1,275 @@
+/*_____________________________________________Home Styling_____________________________________________*/
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #181A2F, #54162B);
+  color: #000000;
+  min-height: 100vh;
+}
+header {
+  width: 100%;
+  background-color: #242E49;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position:absolute;
+  top: 0;
+  text-align: center;
+}
+.btn {
+  width: 30%;
+  padding: 5px;
+  background-color: #B4182D;
+  color: #ffffff;
+  font-size: 16px;
+}
+.btn:hover {
+  background-color: #54162B;
+}
+.btn-signup {
+  width: 30%;
+  padding: 5px;
+  background-color: #B4182D;
+  color: #ffffff;
+  font-size: 16px;
+  margin-top: 5%;
+  border-radius: 5px;
+}
+.btn-signup:hover {
+  background-color: #54162B;
+}
+footer {
+  width: 100%;
+  background-color: #242E49;
+  text-align: center;
+  color: #FDA481;
+  position: Fixed;
+  bottom: 0;
+}
+p {
+  text-align: center;
+  margin-top: 1%;
+  color: #ffffff;
+}
+
+/*_____________________________________________General Styling_____________________________________________*/
+.container {
+  max-width: 400px;
+  justify-content: center;
+  margin-top: 7%;
+  margin-left: 35%;
+  position: fixed;
+  padding: 20px;
+  background-color: #0c4958;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgb(255, 255, 255);
+}
+.index-container{
+  max-width: 400px;
+  padding: 20px;
+  margin-left: 35%;
+  margin-top: 7%;
+  background-color: #0c4958;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgb(255, 255, 255);
+}
+.image-container {
+  display: flex;  
+  gap: 50px; 
+  justify-content: center; 
+  align-items: center; 
+  margin-top: 50px;
+}
+.travel-image {
+  width: 200px;  
+  height: 150px; 
+  border-radius: 5px; 
+  object-fit: cover; 
+}
+button[type="submit"] {
+  padding: 5px;
+  background-color: #B4182D;
+  color: white;
+  font-size: 2rem;
+  border: 1px solid #000000;
+  width: 30%;
+  margin-left: 35%;
+}
+button[type="submit"]:hover {
+  background-color: #181a2f;
+}
+
+/*_____________________________________________Admin Styling_____________________________________________*/
+
+/* Sidebar Styling */
+.sidebar-wrapper {
+  position: relative; 
+  margin-top: 80px; 
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+
+.sidebar-menu li {
+  margin-bottom: 12px;
+}
+
+/* Sidebar Links */
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  width: 200px;
+  padding: 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu a:hover {
+  background: #FDA481;
+  color: #000;
+  transform: translateX(5px);
+  box-shadow: 0 0 8px rgba(0, 217, 255, 0.8);
+}
+
+/* Table Styling */
+.table {
+  width: 90%; /* Adjusted width for a better fit */
+  max-width: 1000px; /* Limit max width */
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+.table-container{
+  margin-left: -20%;
+  margin-bottom: 10%;
+}
+.table-container_reviwes{
+  margin-left: -20%;
+
+  margin-bottom: 10%;
+}
+/* Table Header */
+.table thead {
+  background-color: #f8f9fa;
+  color: #333;
+  font-weight: bold;
+}
+
+.table thead th {
+  font-size: 14px;
+  padding: 10px;
+  text-align: center;
+  white-space: nowrap; /* Prevent header text wrapping */
+}
+
+/* Table Body */
+.table tbody tr {
+  background: #fff;
+  transition: background 0.3s ease-in-out;
+}
+
+.table tbody tr:nth-child(even) {
+  background: #f4f6f9; /* Light gray alternative row styling */
+}
+
+.table tbody tr:hover {
+  background: #e9ecef; /* Hover effect */
+}
+
+/* Table Cells */
+.table tbody td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  color: #444;
+  vertical-align: middle; /* Align content vertically */
+  text-align: center; /* Align content */
+}
+
+/* Image Styling */
+.table tbody td img {
+  max-width: 100px; /* Limit image size */
+  height: 20%;
+}
+
+/* Buttons Styling */
+.table .btn {
+  padding: 5px 10px; /* Adjusted padding */
+  font-size: 12px;
+  border-radius: 5px;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  white-space: wrap;
+}
+
+/* Delete Button */
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+  padding: 6px 12px; /* Adjusted padding for better size */
+  font-size: 12px;
+  border: none;
+  border-radius: 5px;
+  display: inline-block; /* Keeps the button inline */
+  min-width: 70px; /* Ensures it's not too small */
+  margin-top: 30%;
+}
+/* Edit Button */
+.btn-edit {
+  background-color: #dc3545;
+  color: white;
+  padding: 6px 12px; /* Adjusted padding for better size */
+  font-size: 12px;
+  border: none;
+  border-radius: 5px;
+  display: inline-block; /* Keeps the button inline */
+  min-width: 70px; /* Ensures it's not too small */
+  margin-top: 5%;
+}
+/* Add Product Button */
+.add-product {
+  width: auto;
+  padding: 8px 15px;
+  border-radius: 10px;
+  background-color: #B4182D;
+  color: #ffffff;
+  font-size: 16px;
+  margin-top: 80px;
+  margin-bottom: 1%;
+  margin-left: 74.5%;
+  display: block; /* Center the button */
+}
+
+.edit-model{
+  margin-top: 10%;
+  margin-left: 5%;
+  width: 65%;
+}
+/* Post Review Button */
+.post-review {
+  width: auto;
+  padding: 8px 15px;
+  border-radius: 10px;
+  background-color: #B4182D;
+  color: #ffffff;
+  font-size: 16px;
+  margin-top: 80px;
+  margin-bottom: 1%;
+  margin-left: 74.5%;
+  display: block; /* Center the button */
+}
+.duplicate-products {
+  width: auto;
+  padding: 8px 15px;
+  border-radius: 10px;
+  background-color: #B4182D;
+  color: #ffffff;
+  font-size: 16px;
+  margin-top: 80px;
+  margin-left: 74.5%;
+  display: block; /* Center the button */
+}
