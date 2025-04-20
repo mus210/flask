@@ -1,0 +1,78 @@
+{% extends "admin/layout.html" %}
+{% block title %}Manage Reviews{% endblock %}
+{% block content %}
+<header>
+</header>
+<div>
+    <button id="show-duplicates-btn" class="duplicate-products" onclick="toggleDuplicates()">Show Duplicates</button>
+</div>
+<body>
+    <div class="table-container_reviwes" style="justify-items: center;">
+        <table style="width: 130%;" class="table" id="review-table">
+            <thead>
+                <tr>
+                 <th>ID</th>
+                 <th>Product Name</th>
+                 <th>Review</th>
+                 <th>Review Date</th>
+                 <th>Review IP</th>
+                 <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+             {% for review in reviews %}
+                <tr>
+                    <td>{{ review.id }}</td>
+                    <td>{{ review.product_name }}</td>
+                    <td class="review-text">{{ review.review }}</td>
+                    <td>{{ review.review_date }}</td>
+                    <td>{{ review.review_ip }}</td>
+                    <td>
+                        <form action="{{ url_for('delete_review', review_id=review.id) }}" method="POST">
+                            <button type="hidden" class="btn btn-delete"
+                              onclick="return confirm('Are you sure you want to delete this product?');">
+                              Delete
+                            </button>
+                        </form>
+                   </td>
+                </tr>
+             {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function toggleDuplicates() {
+            let rows = document.querySelectorAll("#review-table tbody tr");
+            let reviewTextMap = {};
+            let isFiltered = document.getElementById("show-duplicates-btn").dataset.filtered === "true";
+            if (isFiltered) {
+                // Reset: Show all rows
+                rows.forEach(row => row.style.display = "table-row");
+                document.getElementById("show-duplicates-btn").innerText = "Show Duplicates";
+                document.getElementById("show-duplicates-btn").dataset.filtered = "false";
+                return;
+            }
+            // First, count occurrences of each review text
+            rows.forEach(row => {
+                let reviewText = row.querySelector(".review-text").innerText.trim();
+                if (reviewTextMap[reviewText]) {
+                    reviewTextMap[reviewText]++;
+                } else {
+                    reviewTextMap[reviewText] = 1;
+                }
+            });
+            // Now, hide non-duplicates
+            rows.forEach(row => {
+                let reviewText = row.querySelector(".review-text").innerText.trim();
+                if (reviewTextMap[reviewText] < 2) {
+                    row.style.display = "none";
+                }
+            });
+
+            document.getElementById("show-duplicates-btn").innerText = "Show All";
+            document.getElementById("show-duplicates-btn").dataset.filtered = "true";
+        }
+    </script>
+</body>
+{% endblock %}
